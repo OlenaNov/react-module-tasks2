@@ -2,6 +2,8 @@ import { Wrapper } from "./PaymentWidget.styled";
 import React, { Component } from "react";
 import { PaymentMethods } from "components/PaymentMethods/PaymentMethods";
 import { paymentMethods } from 'constans';
+import { VisaPaymentForm } from "../VisaPaymentForm/VisaPaymentForm";
+import { MastercardPaymentForm } from "components/MastercardPaymentForm/MastercardPaymentForm";
 
 export class PaymentWidget extends Component {
 
@@ -25,14 +27,11 @@ export class PaymentWidget extends Component {
                 onSelect={this.selectedPaymentMethod} 
                 />
                 <>
-                    {selectedWidget === paymentMethods.mastercard && (<div>MastercardForm</div>) }
-                    {selectedWidget === paymentMethods.visa && (<div>VisaForm</div>) }
+                    {selectedWidget === paymentMethods.mastercard && (<MastercardPaymentForm />) }
+                    {selectedWidget === paymentMethods.visa && <VisaPaymentForm /> }
                     {selectedWidget === paymentMethods.applepay && (<div>ApplepayForm</div>) }
                 </>
             </Wrapper>
         );
     };
 };
-{/* <ApplepayForm />
-<VisaForm />
-<MastercardForm /> */}
